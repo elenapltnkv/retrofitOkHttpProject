@@ -7,6 +7,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import ru.elenapltnkv.dao.Pet.Pet;
 import ru.elenapltnkv.services.PetService;
+import ru.elenapltnkv.utils.RetrofitUtils;
 
 import java.io.IOException;
 
@@ -19,10 +20,7 @@ public class PetTest {
 
     @BeforeAll
     static void beforeAll() {
-        retrofit = new Retrofit.Builder()
-                .baseUrl("https://petstore.swagger.io/v2/")
-                //.addConverterFactory(JacksonConverterFactory.create())
-                .build();
+        retrofit= RetrofitUtils.getRetrofit();
         petService = retrofit.create(PetService.class);
     }
 
@@ -36,12 +34,12 @@ public class PetTest {
     @Test
     void getPetId() throws IOException {
         Response<ResponseBody> response = petService.getPetById(1).execute();
-        try {
-            System.out.println(response.body().string());
-        } catch (NullPointerException e) {
-            System.out.println(response.errorBody().string());
-        }
-
+//        try {
+//            System.out.println(response.body().string());
+//        } catch (NullPointerException e) {
+//            System.out.println(response.errorBody().string());
+//        }
+        //System.out.println(response.body().string());
 
     }
 
