@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.elenapltnkv.tests.PetTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-06-21T14:59:54" hostname="user" time="2.338">
+  <properties/>
+  <testcase name="getPetId()" classname="ru.elenapltnkv.tests.PetTest" time="2.338"/>
+  <system-out><![CDATA[{"id":1,"category":{"id":1,"name":"priyanka"},"name":"sharma","photoUrls":["abcd"],"tags":[{"id":2,"name":"xyz"}],"status":"yes"}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
