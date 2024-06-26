@@ -10,20 +10,32 @@ import ru.elenapltnkv.dao.NewUser;
 
 import java.io.IOException;
 
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.not;
 
 
-public class PostUser extends BaseTest {
+public class PostNegativeUser extends BaseTest {
 
     NewUser user = new NewUser();
     Integer id;
 
+
     @BeforeEach
     void setUp() {
-        user.setName(faker.name().firstName());
-        user.setJob(faker.job().position());
+        user.setName(null);
+        user.setJob(null);
+    }
+
+    @Test
+    void createNullUserTest() throws IOException {
+        Response<NUserRes> response = userService
+                .postAddNewUser(user)
+                .execute();
+
+        id = Integer.valueOf(response.body().getId());
+
+        assertThat(response.body().getName()).isNull();
+        assertThat(response.code()).isEqualTo(201);
+
     }
 
     @Test
@@ -31,10 +43,12 @@ public class PostUser extends BaseTest {
         Response<NUserRes> response = userService
                 .postAddNewUser(user)
                 .execute();
+
         id = Integer.valueOf(response.body().getId());
-        assertThat(response.body().getName()).isEqualTo(user.getName());
-        assertThat(response.body().getJob()).isEqualTo(user.getJob());
-        assertThat(response.body().getId()).isNotNull();
+
+        assertThat(response.body().getName()).isNull();
+        assertThat(response.code()).isEqualTo(201);
+
     }
 
     @AfterEach
@@ -42,6 +56,6 @@ public class PostUser extends BaseTest {
 
         userService.deleteUser(id).execute();
 
-        //todo java faker
     }
 }
+//todo добавить редмми

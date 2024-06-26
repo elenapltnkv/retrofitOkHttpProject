@@ -1,6 +1,5 @@
 package ru.elenapltnkv.tests;
 
-import okhttp3.ResponseBody;
 import org.junit.jupiter.api.Test;
 import retrofit2.Response;
 import ru.elenapltnkv.dao.Users;
@@ -10,7 +9,7 @@ import java.io.IOException;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class GetUsersTest extends BaseTest {
+public class GetUsersPositiveTest extends BaseTest {
 
     @Test
     void getUsers() throws IOException {
