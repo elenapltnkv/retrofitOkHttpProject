@@ -1,0 +1,19 @@
+CREATE SCHEMA reqres;
+CREATE TABLE users (
+  Id SERIAL PRIMARY KEY,
+  email VARCHAR(100) NOT NULL,
+  first_name VARCHAR(100) NOT NULL,
+  last_name VARCHAR(100) NOT NULL,
+  avatar VARCHAR(100) NOT NULL 
+);
+CREATE TABLE new_users (
+  sys_Id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  job VARCHAR(100) NOT NULL,
+  id VARCHAR(100) NOT NULL,
+  createdAt VARCHAR(100) NOT NULL
+)
+
+ALTER TABLE new_users
+ADD COLUMN createdAt VARCHAR(100) NOT NULL;
+select * from new_users

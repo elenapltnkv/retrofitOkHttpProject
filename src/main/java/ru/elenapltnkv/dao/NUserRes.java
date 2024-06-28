@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 public class NUserRes {
+
     @JsonProperty("name")
     private String name;
     @JsonProperty("job")
